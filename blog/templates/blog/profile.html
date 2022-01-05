@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %} {% block body_block %}
+<h1 class="mb-4 fw-bold">Profile</h1>
+
+<div class="container text-center justify-content-center">
+    <!-- profile pic -->
+    <img class="rounded-circle mb-2"
+        src="https://previews.123rf.com/images/kebox/kebox1808/kebox180800079/107319484-simple-pencil-icon-in-circle-for-writing-signature-or-comments.jpg"
+        height="100" width="100" alt="profile pic" />
+    <!-- name -->
+    <div class="text-center">
+        <h1 class="fw-bold">{{request.user.username}}</h1>
+    </div>
+
+</div>
+
+{% endblock body_block %}

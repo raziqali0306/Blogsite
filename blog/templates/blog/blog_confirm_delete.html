@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block body_block %}
+
+<h2 class="mb-4 fw-bold">Confirm Delete?</h2>
+
+<div class="container">
+    <h5 class="display-10 mb-2"> Do you want to delete <span class="text-decoration-underline"> {{blog.title}} </span>?
+    </h5>
+
+    <div class="d-flex">
+        <form method="post">
+            {% csrf_token %}
+            <input class="btn btn-danger me-2" type="submit" value="Delete">
+        </form>
+        <a class="btn btn-warning me-3" href="{% url 'blog:my_blogs' %}">Cancel</a>
+    </div>
+</div>
+
+
+
+
+
+{% endblock body_block %}
