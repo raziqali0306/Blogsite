@@ -14,12 +14,12 @@ app_name = 'blog'
 # views on ### Navgation bar ### and help function
 
 ## 1
-class IndexView(ListView):
+class BlogsView(ListView):
     model = models.Blog
     queryset = models.Blog.objects.order_by('-publish_date')
 
 ## 2
-class TopBlogs(ListView):
+class TopBlogsView(ListView):
     model = models.Blog
     queryset = models.Blog.objects.order_by('-likes')
 
@@ -35,13 +35,13 @@ def LikePost(request, likeId) :
         return HttpResponseRedirect('/login')
 
 ## 3
-class Announcements(TemplateView) :
+class AnnouncementsView(TemplateView) :
     template_name = 'blog/announcements.html'
 
 # Views of DropDown when user is logged out
 
 ## 1
-class Login(View) :
+class LoginView(View) :
     form_class = forms.UserForm
     initial = {'key': 'value'}
     template_name = 'blog/login.html'
@@ -63,7 +63,7 @@ class Login(View) :
         return render(request, self.template_name, {'form': form})
 
 ## 2
-class Register(View):
+class RegisterView(View):
     form_class = forms.UserForm
     initial = {'key': 'value'}
     template_name = 'blog/register.html'
@@ -88,19 +88,19 @@ class Register(View):
 # Views of DropDown when user is not logged in
 
 ## 1
-class MyBlogs(View):
+class MyBlogsView(View):
     
     def get(self, request, *args, **kwargs):
         blogs = models.Blog.objects.filter(author=request.user.id).order_by('-publish_date')
         return render(request, 'blog/my_blogs.html', context={'my_blogs' : blogs})
 
 ## 2
-class Profile(TemplateView):
+class ProfileView(TemplateView):
     template_name = 'blog/profile.html'
 
 
 ## 3
-class Logout(View):
+class LogoutView(View):
     def get(self, request) :
         logout(request)
         return HttpResponseRedirect('/')
@@ -108,7 +108,7 @@ class Logout(View):
 
 # blog class
 
-class CreateBlog(CreateView):
+class CreateBlogView(CreateView):
     model = models.Blog
     fields = ['title', 'description', 'blog_image']
 
@@ -118,10 +118,10 @@ class CreateBlog(CreateView):
         form.save()
         return HttpResponseRedirect('/myBlogs')
 
-class UpdateBlog(UpdateView):
+class UpdateBlogView(UpdateView):
     model = models.Blog
     fields = ['title', 'description', 'blog_image']
 
-class DeleteBlog(DeleteView):
+class DeleteBlogView(DeleteView):
     model = models.Blog
     success_url = reverse_lazy('blog:my_blogs')
