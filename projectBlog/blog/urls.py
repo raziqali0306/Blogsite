@@ -14,6 +14,7 @@ urlpatterns = [
     re_path(r'^create/$', views.CreateBlogView.as_view(), name='createBlog'),
     re_path(r'^edit/(?P<pk>[0-9]+)$', views.UpdateBlogView.as_view(), name='updateBlog'),
     re_path(r'^delete/(?P<pk>[0-9]+)$', views.DeleteBlogView.as_view(), name='deleteBlog'),
+    re_path(r'^detail/(?P<pk>[0-9]+)$', views.BlogDetailView.as_view(), name='blogDetail'),
 ]
 
 

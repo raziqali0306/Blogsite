@@ -11,7 +11,7 @@
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <input class="btn btn-primary px-3" type="submit" value="Post" />
+        <input class="btn btn-success px-3" type="submit" value="Save" />
         <a class="btn btn-danger" href="{% url 'blog:my_blogs' %}">Cancel</a>
     </form>
 </div>

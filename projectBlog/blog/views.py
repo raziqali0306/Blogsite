@@ -3,7 +3,7 @@ from django.contrib.auth import authenticate, login, logout, models
 from django.db import models
 from django.http.response import HttpResponseRedirect
 from django.urls.base import reverse_lazy
-from django.views.generic import ListView, TemplateView, View, UpdateView, CreateView, DeleteView
+from django.views.generic import ListView, TemplateView, View, UpdateView, CreateView, DeleteView, DetailView
 from . import models, forms
 from django.shortcuts import render
 
@@ -117,6 +117,10 @@ class CreateBlogView(CreateView):
         print(self.request)
         form.save()
         return HttpResponseRedirect('/myBlogs')
+
+class BlogDetailView(DetailView):
+    model = models.Blog
+    template_name = 'blog/blog_detail.html'
 
 class UpdateBlogView(UpdateView):
     model = models.Blog
