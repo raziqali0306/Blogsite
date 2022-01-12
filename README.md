@@ -1,5 +1,5 @@
 # Blogsite
-Go to Blogsite [here.!](raziqali0306.pythonanywhere.com)
+Go to Blogsite [here.!](http://raziqali0306.pythonanywhere.com/)
 
 # Django Blogsite
 ## To run Blogsite on your computer
