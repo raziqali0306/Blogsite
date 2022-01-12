@@ -8,7 +8,7 @@ Go to Blogsite [here.!](raziqali0306.pythonanywhere.com)
 4. In cmd run, ```py manage.py makemigrations``` and ```py manage.py migrate``` to migrate all migrations
 4. To start server run, ```py manage.py runserver```
 
-**_Note_** : open cmd and set path where manage.py is present in your computer
+**_Note_** : open cmd and set path where manage.py is present in your computer form step-2
 
 
 ## Contributing to Blogsite
